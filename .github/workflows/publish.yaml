@@ -23,9 +23,9 @@ jobs:
     steps:
       - name: Get the Release Version
         id: get_release_version
-        run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+        run: echo ::set-output name=VERSION::$(echo $GITHUB_REF_NAME)
       - id: get_release_version_without_prefix
-        run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3 | cut -d v -f 3)
+        run: echo ::set-output name=VERSION::$(echo $GITHUB_REF_NAME | sed 's/v//')
 
   build-and-push-image:
     runs-on: ubuntu-latest
