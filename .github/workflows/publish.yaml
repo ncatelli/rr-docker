@@ -20,9 +20,6 @@ jobs:
     outputs:
       release_version: ${{ steps.get_release_version.outputs.VERSION }}
       release_version_tag: ${{ steps.get_release_version_without_prefix.outputs.VERSION }}
-
-      output2: ${{ steps.step2.outputs.test }}
-
     steps:
       - name: Get the Release Version
         id: get_release_version
